@@ -1,0 +1,53 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+	\begin{tikzpicture}
+		\fill[white,opacity=1] (-0.5\paperwidth,0) rectangle(\the\paperwidth,-1.0\paperheight);
+
+		% Jolla logo
+		%\node[inner sep=0pt] at (-0.5\paperwidth+40.0pt,-\paperheight+20.0pt){\includegraphics[width=32.0pt]{slide-jolla}};
+
+		% Sailfish OS logo
+		\node[inner sep=0pt] at (0.5\paperwidth-40.0pt,-\paperheight+20.0pt){\includegraphics[width=32.0pt]{slide-logo}};
+
+		\ifnum\thepage=1\relax%
+			% Title page graphic
+			% 0.1480427856167501 is (0.5 * imageheight / imagewidth)
+			\node[inner sep=0pt] at (0.0,-0.1480427856167501\paperwidth){\includegraphics[width=1.0\paperwidth]{slide-background}};
+		\fi
+	\end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{sailfish}[1][]
+{
+	\vspace{0.5\paperheight}%
+	\newlength\titletextwidth
+	\setlength\titletextwidth{\paperwidth-40pt-8pt}
+	\begin{beamercolorbox}[wd=\titletextwidth,leftskip=0.0pt,#1,right]{title page header}
+		\usebeamerfont{title}\MakeUppercase{\inserttitle}\par%
+	\end{beamercolorbox}%
+	\vskip10pt%
+
+	\begin{columns}[T]
+	\begin{column}[T]{0.4\titletextwidth}
+
+	\begin{beamercolorbox}[wd=0.5\titletextwidth,leftskip=11.0pt,#1]{subtitle page header}
+		\usebeamerfont{subtitle}\insertsubtitle\par%
+	\end{beamercolorbox}%
+	\end{column}
+
+	\begin{column}[T]{0.4\titletextwidth}
+	\begin{beamercolorbox}[wd=0.49\titletextwidth,leftskip=0.0\titletextwidth,right,#1]{author}
+		\usebeamerfont{author}\insertauthor \\
+		\usebeamerfont{author}\insertdate%
+	\end{beamercolorbox}
+
+	\end{column}
+	\end{columns}
+
+	\vfill
+}
+
+\mode<all>
+

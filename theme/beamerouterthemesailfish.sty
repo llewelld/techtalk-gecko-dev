@@ -1,0 +1,27 @@
+\mode<presentation>
+
+% Frame title
+\defbeamertemplate*{frametitle}{sailfish}[1][]
+{
+	\vspace{12pt}
+	\begin{beamercolorbox}[wd=\textwidth,leftskip=0pt,#1]{frame title}
+		\usebeamerfont{frametitle}\MakeUppercase{\insertframetitle}\par%
+	\end{beamercolorbox}%
+	\vspace{-12pt}
+
+	\ifx\insertframesubtitle\@empty%
+	\else
+		\begin{beamercolorbox}[wd=\textwidth,leftskip=0.0pt,#1]{frame subtitle}
+			\usebeamerfont{framesubtitle}\insertframesubtitle%
+		\end{beamercolorbox}
+	\fi
+	\vspace{-10pt}
+}
+
+\setbeamertemplate{footline}
+{
+	\vspace{20pt}%
+}
+
+\mode<all>
+

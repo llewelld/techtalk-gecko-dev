@@ -1,0 +1,855 @@
+\PassOptionsToPackage{table}{xcolor}
+
+\documentclass[
+%	handout,
+	notes=none,
+	aspectratio=169
+]{beamer}
+
+% Comment out the following line to hide the notes
+%\setbeameroption{show notes}
+
+\input{macros}
+
+\usefolder{theme}
+\usetheme{sailfish}
+
+\begin{document}
+
+\title{Anatomy of a Browser}
+\subtitle{Embedded Mobile Lizards}
+\author{David Llewellyn-Jones}
+\date{15th October 2024}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+\frame{
+\titlepage
+}
+\note{
+}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Gecko}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item Mozilla's rendering engine used in Firefox
+\item Released in 2000, Netscape 6
+\item Alternative to Blink, WebKit, Netsurf
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item Mozilla's rendering engine used in Firefox
+\item First appeared in 2000 with the release of Netscape 6
+\item Alternative to Blink (Chrome, Edge, Brave, Vivaldi), WebKit (Safari, iOS, Ephiphany), Netsurf (Netsurf)
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Embedded Browsers}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+What does ``embedded'' mean?
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item Smaller resource footprint devices
+\item Embeddable on other programs.
+\item All of the above
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Embedding Gecko}
+
+\begin{columns}[T]
+\begin{column}[T]{1.0\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+
+\begin{shadequote}[r]{Chris Lord, February 2016}
+Gecko has limited embedding capability that is not well-documented, not well-maintained and not heavily invested in... We have at various points in history had embedding APIs/capabilities, but we have either dropped them (gtkmozembed) or let them bit-rot (IPCLite).
+\end{shadequote}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item It's an old quote, but holds true today.
+\item Chris Lord was a Mozilla engineer at the time.
+\item He makes clear he's not criticising the implementations, but rather the strategic direction of Mozilla.
+\item IPCLite is another name for EmbedLite.
+\item \url{https://www.chrislord.net/2016/02/24/the-case-for-an-embeddable-gecko/}
+\item \url{https://www.chrislord.net/2016/03/08/state-of-embedding-in-gecko/}
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Context}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item Work upgrading the browser on Sailfish OS
+\item ESR 78.15.0 to ESR 91.9.1
+\item Work conducted over the last 13 months
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Timeline}
+
+\begin{columns}[T]
+\begin{column}[T]{1.0\textwidth}
+
+\vspace{0.2cm}
+\includegraphics[width=1.0\textwidth]{timeline}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item The timeline of work up until now.
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Challenges working with the browser}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item Long build times
+\item Complex build process
+\item Random upstream changes (e.g. converting quote characters)
+\item Removal of the entire EmbedLite rendering pipeline
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Dev Diary}
+
+\begin{columns}[T]
+\begin{column}[T]{0.6\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.2cm}
+{\huge
+\href{https://www.flypig.co.uk/gecko}{{\tt https:// \\
+www.flypig.co.uk \\
+/gecko\\
+}
+}}
+
+\end{column}
+\begin{column}[T]{0.3\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{qrcode-gecko-dev}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Basic Browser Structure}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item Protocol client (HTTP/S, file, FTP,...)
+\item DOM - Document Object Model
+\item JavaScript engine
+\item Media decoding (JPG, PNG, SVG, audio, video)
+\item Layout/rendering engine (HTML, CSS)
+\item User interface
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{XULRunner}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+What is xulrunner?
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item XUL: XML User interface Language
+\item xulrunner: build process to generate a library
+\item Officially deprecated in 2016
+\item Outputs libxul.so and related artefacts
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{EmbedLite}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+What is xulrunner?
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item XULRunner with hooks for Qt event loop support
+\item Run as a thread or a process
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{libxul.so}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item Provides HTTP client, renderer, JavaScript interpretter
+\item Everything except the front-end
+\item Methods for sending and receiving IPC calls
+\item Exposes the full Gecko interface
+\item Including calls to register privileged JavaScript
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Interface Definition Language}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item IDL
+\item XPCOM
+\item Introspection
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{IPC calls}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item -
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Rendering}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item -
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{User Interface triggers}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item -
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{DocShell}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item -
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{DOMWindow}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item -
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Widgets}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item -
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Parent-Child Pattern}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item -
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{omni.ja}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.5cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item -
+\end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{mozilla}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Sailfish Browser}
+
+\begin{columns}[T]
+\begin{column}[T]{1.1\textwidth}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{components}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item The Sailfish Browser isn't just gecko.
+\item {\tt sailfish-browser} provides the user interface (C++/Qt/QML).
+\item {\tt embedlite-components} provides JavaScript user interface functionality (JavaScript).
+\item {\tt qtmozembed} turns gecko into an embeddable Qt component (C++/Qt).
+\item {\tt gecko} is the EmbedLite embedded gecko renderer (JavaScript/C++/Rust).
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Sailfish Browser}
+
+\begin{columns}[T]
+\begin{column}[T]{1.1\textwidth}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{components-languages}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item The Sailfish Browser isn't just gecko.
+\item {\tt sailfish-browser} provides the user interface (C++/Qt/QML).
+\item {\tt embedlite-components} provides JavaScript user interface functionality (JavaScript).
+\item {\tt qtmozembed} turns gecko into an embeddable Qt component (C++/Qt).
+\item {\tt gecko} is the EmbedLite embedded gecko renderer (JavaScript/C++/Rust).
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Gecko Code Distribution}
+
+\begin{columns}[T]
+\begin{column}[T]{0.7\textwidth}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{totals}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Chromium Code Distribution}
+
+\begin{columns}[T]
+\begin{column}[T]{0.7\textwidth}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{totals-chromium}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Gecko Patches}
+
+\begin{columns}[T]
+\begin{column}[T]{0.7\textwidth}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{patches}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+%\frametitle{Thigg's Images}
+
+\begin{columns}[T]
+\begin{column}[T]{1.0\textwidth}
+
+\vspace{-0.12cm}
+\hspace*{-1.1cm}
+\includegraphics[width=1.15\textwidth]{Thigg}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item A special shout-out to Thigg who has been created AI-generated images to go alongside my blog posts. They are amazing.
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Further info}
+\setlength{\leftmargini}{7.0em}
+\vspace{0.8cm}
+
+\begin{itemize}
+\setlength{\parskip}{1.0em}
+\item[Dev Diary] \, \url{https://www.flypig.co.uk/gecko}
+\item[Sailfish Browser] \, \url{https://github.com/sailfishos/sailfish-browser}
+\item[Gecko source] \, \url{https://github.com/llewelld/gecko-dev}
+\item[Sailfish OS] \, \url{https://sailfishos.org}
+\item[Slides source] \, \url{https://github.com/llewelld/fosdem24-gecko-dev}
+\end{itemize}
+
+\end{frame}
+\note{
+\fontsize{7pt}{8pt}{\bibliographystyle{ieeetr}}
+\bibliography{slides}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

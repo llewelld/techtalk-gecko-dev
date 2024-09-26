@@ -1,0 +1,32 @@
+\mode<presentation>
+
+% Requirement
+\usepackage{tikz}
+\usepackage{fontspec}
+\usepackage{perpage}
+\usepackage{graphicx}
+\usepackage{calc}
+
+% Settings
+\useinnertheme{sailfish}
+\useoutertheme{sailfish}
+\usecolortheme{sailfish}
+\usefonttheme{sailfish}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\MakePerPage{footnote}
+
+% Graphics configuration
+\graphicspath{{./graphics/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg,.pdf}
+
+% Bibliography
+%\setbeamertemplate{bibliography entry title}{}
+%\setbeamertemplate{bibliography entry location}{}
+%\setbeamertemplate{bibliography entry note}{}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+\mode<all>
+
