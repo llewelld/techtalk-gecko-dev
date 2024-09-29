@@ -1,0 +1,58 @@
+{
+	"start": 1990,
+	"end": 2025,
+	"colour_cycle": "group",
+	"bars": [
+		{"name": "WorldWideWeb", "start": 1990, "end": 1995},
+		{"name": "Line Mode Browser", "start": 1991, "end": 2018},
+		{"name": "Amaya", "start": 1996, "end": 2014},
+		{"name": "NCSA Mosaic", "start": 1993, "end": 1998},
+		{"name": "Spyglass Mosaic", "start": 1994, "end": 2001},
+		{"name": "Internet Explorer", "start": 1995, "end": 2022},
+		{"name": "Edge Triton", "label": "Edge", "start": 2014, "end": 2025},
+		{"name": "Netscape Navigator Navigator", "label": "Netscape Navigator", "start": 1994, "end": 2000},
+		{"name": "Netscape Navigator Gecko", "label": "Navigator", "start": 2000, "end": 2002},
+		{"name": "Firefox", "start": 2002, "end": 2025, "row": "Netscape Navigator Gecko"},
+		{"name": "Servo", "start": 2012, "end": 2025},
+		{"name": "Konquerer", "start": 2000, "end": 2024},
+		{"name": "Safari", "start": 2002, "end": 2025},
+		{"name": "Chrome", "start": 2008, "end": 2025},
+		{"name": "Chromium", "start": 2013, "end": 2025},
+		{"name": "Edge Blink", "label": "Edge", "start": 2019, "end": 2025},
+		{"name": "Opera Blink", "label": "Opera", "start": 2013, "end": 2025},
+		{"name": "Opera Presto", "label": "Opera", "start": 1995, "end": 2013},
+		{"name": "Singularity", "start": 2018, "end": 2023},
+		{"name": "Ladybird", "start": 2023, "end": 2025, "row": "Singularity"},
+		{"name": "Netsurf", "start": 2002, "end": 2025}
+	],
+	"groups": [
+	    {"name": "Libwww", "items": 3},
+	    {"name": "Trident", "items": 4},
+	    {"name": "Navigator", "items": 1},
+	    {"name": "Gecko", "items": 1},
+	    {"name": "Servo", "items": 1},
+	    {"name": "KHTML", "items": 1},
+	    {"name": "WebKit", "items": 1},
+	    {"name": "Blink", "items": 4},
+	    {"name": "Presto", "items": 1},
+	    {"name": "LibWeb", "items": 1},
+	    {"name": "Netsurf", "items": 1}
+	],
+	"connections": [
+	    {"start": "WorldWideWeb", "end": "Line Mode Browser", "out": "body", "in": "start" },
+	    {"start": "Line Mode Browser", "end": "Amaya", "out": "body", "in": "start" },    
+	    {"start": "Line Mode Browser", "end": "NCSA Mosaic", "out": "body", "in": "start" },    
+	    {"start": "NCSA Mosaic", "end": "Spyglass Mosaic", "out": "body", "in": "start" },
+	    {"start": "Spyglass Mosaic", "end": "Internet Explorer", "out": "body", "in": "start" },
+	    {"start": "Internet Explorer", "end": "Edge Triton", "out": "body", "in": "start" },
+	    {"start": "Netscape Navigator Navigator", "end": "Netscape Navigator Gecko", "out": "end", "in": "start" },
+	    {"start": "Firefox", "end": "Servo", "out": "body", "in": "start" },
+	    {"start": "Konquerer", "end": "Safari", "out": "body", "in": "start" },
+	    {"start": "Safari", "end": "Chrome", "out": "body", "in": "start" },
+	    {"start": "Chrome", "end": "Chromium", "out": "body", "in": "start" },
+	    {"start": "Chrome", "end": "Opera Blink", "out": "body", "in": "start" },
+	    {"start": "Chromium", "end": "Edge Blink", "out": "body", "in": "start" },
+	    {"start": "Opera Presto", "end": "Opera Blink", "out": "end", "in": "start" }
+	]
+}
+

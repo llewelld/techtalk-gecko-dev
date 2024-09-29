@@ -7,11 +7,16 @@ slides.aux: slides.tex slides.bib
 #	bibtex slides.aux
 
 #slides.pdf: slides.tex slides.bbl macros.tex graphics/timeline.pdf
-slides.pdf: slides.tex macros.tex
+slides.pdf: slides.tex macros.tex graphics/gantt.pdf
 	xelatex slides.tex
 	xelatex slides.tex
 
-#graphics/timeline.pdf: resources/timeline.dot
+graphics/gantt.pdf: resources/gantt.svg
+	inkscape resources/gantt.svg -o graphics/gantt.pdf
+
+resources/gantt.svg: resources/make-gantt.py resources/browsers.json
+	cd ${PWD}/resources && python3 make-gantt.py
+
 #	dot -Tpdf resources/timeline.dot > graphics/timeline.pdf
 
 techtalk-gecko-dev.pdf: slides.pdf
