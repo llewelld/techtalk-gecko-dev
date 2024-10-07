@@ -28,7 +28,7 @@ Links:
 
 ## Prebuilt slides
 
-TBC
+Slides built from the latest successfully built push to the repository are available in the [pdf-output branch](../gh-action-result/pdf-output/techtalk-gecko-dev.pdf).
 
 ## Building the presentation into a PDF
 
@@ -38,6 +38,16 @@ Requirements:
 2. xelatex
 3. Source Sans Pro font family:
    https://fonts.google.com/specimen/Source+Sans+Pro
+4. Inkscape
+
+In order to generate the graphics you'll need to create and activate a Python virtual environment:
+```
+pushd resources
+python3 -m venv venv
+source ./venv/bin/activate
+pip install -r requirements.txt
+popd
+```
 
 Build the PDF output using the included makefile:
 ```
