@@ -1,0 +1,50 @@
+{
+    "cellwidth": 256,
+    "cellheight": 256,
+    "gapwidth": 256,
+    "gapheight": 256,
+    "width": 5,
+    "height": 3,
+	"colour_cycle": "group",
+	"nodes": [
+	    {"name": "Web\nserver", "x": 0, "y": 1},
+	    {"name": "Protocol\nclient", "x": 1, "y": 1},
+	    {"name": "DOM\n+\nscene graph", "x": 2, "y": 1},
+	    {"name": "JavaScript\nengine", "x": 1, "y": 0},
+	    {"name": "Media\nencoder/\ndecoder", "x": 1, "y": 2},
+	    {"name": "Layout\nengine", "x": 2, "y": 0},
+	    {"name": "Renderer", "x": 2, "y": 2},
+	    {"name": "Render\nbackend", "x": 3, "y": 2},
+	    {"name": "Chrome", "x": 3, "y": 0},
+	    {"name": "nsDocShell\n+\nnsWebBrowser", "x": 3, "y": 1},
+	    {"name": "Compositor", "x": 4, "y": 1}
+	],
+	"connections": [
+	    {"name": "Request","start": "Protocol\nclient", "end": "Web\nserver"},
+	    {"name": "Response","start": "Web\nserver", "end": "Protocol\nclient"},
+	    {"name": "Updates","start": "JavaScript\nengine", "end": "DOM\n+\nscene graph"},
+	    {"name": "Requests load from","start": "DOM\n+\nscene graph", "end": "Protocol\nclient"},
+	    {"name": "Populates","start": "Protocol\nclient", "end": "DOM\n+\nscene graph"},
+	    {"name": "Iterates over","start": "DOM\n+\nscene graph", "end": "Layout\nengine"},
+	    {"name": "Positions","start": "Layout\nengine", "end": "DOM\n+\nscene graph"},
+	    {"name": "Updates","start": "nsDocShell\n+\nnsWebBrowser", "end": "DOM\n+\nscene graph"},
+	    {"name": "Updates","start": "Chrome", "end": "nsDocShell\n+\nnsWebBrowser"},
+	    {"name": "Interacts with","start": "Chrome", "end": "Compositor"},
+	    {"name": "Sends metadata to","start": "Media\nencoder/\ndecoder", "end": "DOM\n+\nscene graph"},
+	    {"name": "Iterates over","start": "Renderer", "end": "DOM\n+\nscene graph"},
+	    {"name": "Updates","start": "nsDocShell\n+\nnsWebBrowser", "end": "Renderer"},
+	    {"name": "Renders to","start": "Renderer", "end": "Render\nbackend"},
+	    {"name": "Renders to","start": "Render\nbackend", "end": "Compositor"},
+	    {"name": "Provides surface to","start": "Compositor", "end": "Render\nbackend"},
+	    {"name": "Sends output to","start": "Media\nencoder/\ndecoder", "end": "Renderer"}
+	],
+	"groups": [
+	    {"name": "Internet", "items": 3},
+	    {"name": "JavaScript\nEngine", "items": 1},
+	    {"name": "Client\nComponents", "items": 2},
+	    {"name": "Render/Layout\nEngine", "items": 3},
+	    {"name": "Interface", "items": 3},
+	    {"name": "Operating\nSystem", "items": 3}
+	]
+}
+

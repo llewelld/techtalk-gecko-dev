@@ -6,18 +6,21 @@ slides.aux: slides.tex slides.bib
 #slides.bbl: slides.aux
 #	bibtex slides.aux
 
-#slides.pdf: slides.tex slides.bbl macros.tex graphics/timeline.pdf
-slides.pdf: slides.tex macros.tex graphics/gantt.pdf
+slides.pdf: slides.tex macros.tex graphics/gantt.pdf graphics/internals.pdf
 	xelatex slides.tex
 	xelatex slides.tex
 
 graphics/gantt.pdf: resources/gantt.svg
 	inkscape resources/gantt.svg -o graphics/gantt.pdf
 
+graphics/internals.pdf: resources/internals.svg
+	inkscape resources/internals.svg -o graphics/internals.pdf
+
 resources/gantt.svg: resources/make-gantt.py resources/browsers.json
 	cd ${PWD}/resources && python3 make-gantt.py
 
-#	dot -Tpdf resources/timeline.dot > graphics/timeline.pdf
+resources/internals.svg: resources/make-blocks.py resources/internals.json
+	cd ${PWD}/resources && python3 make-blocks.py
 
 techtalk-gecko-dev.pdf: slides.pdf
 	cp slides.pdf techtalk-gecko-dev.pdf
