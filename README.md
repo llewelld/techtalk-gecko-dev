@@ -1,5 +1,8 @@
 # Tech Talk: Anatomy of a Browser - Embedded Mobile Lizards
 
+[![LaTeX build](../../actions/workflows/pdflatex.yml/badge.svg)](../../actions/workflows/pdflatex.yml)
+[![Slides](https://img.shields.io/badge/PDF-Slides-orange.svg?style=flat)](../gh-action-result/pdf-output/techtalk-gecko-dev.pdf)
+
 The Alan Turing Institute Tech Talk series
 
 19/11/2024

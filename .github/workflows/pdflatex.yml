@@ -1,0 +1,45 @@
+# vim: et:ts=2:sts=2:sw=2
+
+# SPDX-License-Identifier: MIT
+# Copyright © 2024 David Llewellyn-Jones
+
+name: LaTeX build
+on:
+  push:
+    branches-ignore:
+      - 'gh-action-result/pdf-output'
+  workflow_dispatch:
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v4
+      - name: Compile LaTeX documents
+        uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: |
+            apk add inkscape
+            pushd .
+            pushd resources
+            python3 -m venv venv
+            source ./venv/bin/activate
+            pip install -r requirements.txt
+            popd
+            make
+            deactivate
+            popd
+      - name: Commit to orphan branch
+        run: |
+          git checkout --orphan gh-action-result/pdf-output
+          git rm -rf .
+          git add techtalk-gecko-dev.pdf
+          git -c user.name='GitHub Action' -c user.email='action@github.com' commit -m "Built PDF documents"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-action-result/pdf-output
+          force: true
