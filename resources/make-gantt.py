@@ -5,8 +5,6 @@
 # Copyright © 2024 David Llewellyn-Jones
 
 import drawsvg as draw
-from svglib.svglib import svg2rlg
-from reportlab.graphics import renderPDF
 import json
 from math import sin, pi
 
@@ -334,7 +332,7 @@ class Gantt:
 		
 		x_ctl_1 = x + (width / 4)
 		y_ctl_1 = y
-		x_ctl_2 = x +	 (width / 2)
+		x_ctl_2 = x + (width / 2)
 		y_ctl_2 = y + (width / 4)
 		x_end = x + (width / 2)
 		y_end = y + (width / 2)
