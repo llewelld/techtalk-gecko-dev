@@ -2,6 +2,9 @@
 linux-on-smartphone.pdf
 resources/devices/
 slides.pdf
+graphics/gantt.pdf
+graphics/internals.pdf
+techtalk-gecko-dev.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
