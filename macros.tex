@@ -61,7 +61,8 @@
 	captionpos=b,
 	xleftmargin=5mm,
 	escapeinside={££}{££},
-	framexleftmargin=5mm
+	framexleftmargin=5mm,
+	showlines=true
 }
 
 % https://tex.stackexchange.com/questions/89574/language-option-supported-in-listings
@@ -96,9 +97,9 @@
 }
 
 \lstdefinelanguage{cpp}{
-	keywords={class, public, private, try, throw, catch, this, return, null, switch, if, while, do, else, case, break, for, bool, void, const},
+	keywords={class, public, private, try, throw, catch, this, return, null, switch, if, while, do, else, case, break, for, bool, void, const, static, volatile, int},
 	keywordstyle=\color{blue}\bfseries,
-	ndkeywords={Q_OBJECT, Q_CLASSINFO, Q_PROPERTY, Q_SLOTS, Q_SIGNALS, signals, slots, READ, WRITE, NOTIFY},
+	ndkeywords={Q_OBJECT, Q_CLASSINFO, Q_PROPERTY, Q_SLOTS, Q_SIGNALS, signals, slots, READ, WRITE, NOTIFY, QString, QUrl, CefString, CefRefPtr, qreal},
 	ndkeywordstyle=\color{teal}\bfseries,
 	identifierstyle=\color{black},
 	sensitive=false,

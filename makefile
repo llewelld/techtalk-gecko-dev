@@ -6,7 +6,7 @@ slides.aux: slides.tex slides.bib
 #slides.bbl: slides.aux
 #	bibtex slides.aux
 
-slides.pdf: slides.tex macros.tex graphics/gantt.pdf graphics/internals.pdf
+slides.pdf: slides.tex macros.tex graphics/gantt.pdf graphics/internals.pdf code-examples/*.*
 	xelatex slides.tex
 	xelatex slides.tex
 
