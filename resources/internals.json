@@ -25,7 +25,7 @@
 	    {"name": "Updates","start": "JavaScript\nengine", "end": "DOM\n+\nscene graph"},
 	    {"name": "Requests load from","start": "DOM\n+\nscene graph", "end": "Protocol\nclient"},
 	    {"name": "Populates","start": "Protocol\nclient", "end": "DOM\n+\nscene graph"},
-	    {"name": "Iterates over","start": "DOM\n+\nscene graph", "end": "Layout\nengine"},
+	    {"name": "Iterates over","start": "Layout\nengine", "end": "DOM\n+\nscene graph"},
 	    {"name": "Positions","start": "Layout\nengine", "end": "DOM\n+\nscene graph"},
 	    {"name": "Updates","start": "nsDocShell\n+\nnsWebBrowser", "end": "DOM\n+\nscene graph"},
 	    {"name": "Updates","start": "Chrome", "end": "nsDocShell\n+\nnsWebBrowser"},
