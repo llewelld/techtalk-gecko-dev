@@ -67,15 +67,15 @@
 
 % https://tex.stackexchange.com/questions/89574/language-option-supported-in-listings
 \lstdefinelanguage{JavaScript}{
-	keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+	keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, try, const},
 	keywordstyle=\color{blue}\bfseries,
 	ndkeywords={class, export, boolean, throw, implements, import, this},
-	ndkeywordstyle=\color{darkgray}\bfseries,
+	ndkeywordstyle=\color{violet}\bfseries,
 	identifierstyle=\color{black},
 	sensitive=false,
 	comment=[l]{//},
 	morecomment=[s]{/*}{*/},
-	commentstyle=\color{purple}\ttfamily,
+	commentstyle=\color{teal}\ttfamily,
 	stringstyle=\color{red}\ttfamily,
 	morestring=[b]',
 	morestring=[b]"
@@ -85,27 +85,42 @@
 	keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, id, property, bool, string, int, decimal, target},
 	keywordstyle=\color{blue}\bfseries,
 	ndkeywords={Page, Example, Timer, Column, PageHeader, TextSwitch, Label},
-	ndkeywordstyle=\color{teal}\bfseries,
+	ndkeywordstyle=\color{violet}\bfseries,
 	identifierstyle=\color{black},
 	sensitive=true,
 	comment=[l]{//},
 	morecomment=[s]{/*}{*/},
-	commentstyle=\color{green}\ttfamily,
+	commentstyle=\color{teal}\ttfamily,
 	stringstyle=\color{red}\ttfamily,
 	morestring=[b]',
 	morestring=[b]"
 }
 
 \lstdefinelanguage{cpp}{
-	keywords={class, public, private, try, throw, catch, this, return, null, switch, if, while, do, else, case, break, for, bool, void, const, static, volatile, int},
+	keywords={class, public, private, try, throw, catch, this, return, null, switch, if, while, do, else, case, break, for, bool, void, const, static, volatile, int, using},
 	keywordstyle=\color{blue}\bfseries,
-	ndkeywords={Q_OBJECT, Q_CLASSINFO, Q_PROPERTY, Q_SLOTS, Q_SIGNALS, signals, slots, READ, WRITE, NOTIFY, QString, QUrl, CefString, CefRefPtr, qreal},
-	ndkeywordstyle=\color{teal}\bfseries,
+	ndkeywords={Q_OBJECT, Q_CLASSINFO, Q_PROPERTY, Q_SLOTS, Q_SIGNALS, signals, slots, READ, WRITE, NOTIFY, QString, QUrl, CefString, CefRefPtr, qreal, nsresult, NS_IMETHODIMP, NS_ENSURE_SUCCESS, nsCOMPtr},
+	ndkeywordstyle=\color{violet}\bfseries,
 	identifierstyle=\color{black},
 	sensitive=false,
 	comment=[l]{//},
 	morecomment=[s]{/*}{*/},
-	commentstyle=\color{purple}\ttfamily,
+	commentstyle=\color{teal}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]"
+}
+
+\lstdefinelanguage{idl}{
+	keywords={interface, public, private, void, scriptable},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={in, out, uuid},
+	ndkeywordstyle=\color{violet}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{teal}\ttfamily,
 	stringstyle=\color{red}\ttfamily,
 	morestring=[b]',
 	morestring=[b]"
@@ -115,12 +130,12 @@
 	keywords={dbus, send, zypper, python3},
 	keywordstyle=\color{blue}\bfseries,
 	ndkeywords={session, type, print, reply, dest},
-	ndkeywordstyle=\color{teal}\bfseries,
+	ndkeywordstyle=\color{violet}\bfseries,
 	identifierstyle=\color{black},
 	sensitive=false,
 	comment=[l]{\#},
 	morecomment=[s]{/*}{*/},
-	commentstyle=\color{purple}\ttfamily,
+	commentstyle=\color{teal}\ttfamily,
 	stringstyle=\color{red}\ttfamily,
 	morestring=[b]',
 	morestring=[b]"
