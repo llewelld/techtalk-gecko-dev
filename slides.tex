@@ -19,7 +19,7 @@
 \title{Anatomy of a Browser}
 \subtitle{Embedded Mobile Lizards}
 \author{David Llewellyn-Jones}
-\date{15th October 2024}
+\date{5th November 2024}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -72,26 +72,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{}
-
-\begin{columns}[T]
-\begin{column}[T]{1.05\textwidth}
-
-\vspace{0.7cm}
-\includegraphics[width=1.0\textwidth]{gantt}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item The browser history timeline.
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
 \frametitle{Embedded Browsers}
 
 \begin{columns}[T]
@@ -121,6 +101,27 @@ What does ``embedded'' mean?
 \note{
 \begin{enumerate}
 \item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{}
+
+\begin{columns}[T]
+\begin{column}[T]{1.05\textwidth}
+
+\vspace{0.7cm}
+\includegraphics[width=1.0\textwidth]{gantt}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item The browser history timeline.
 \end{enumerate}
 }
 
@@ -278,6 +279,119 @@ www.flypig.co.uk \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{Sailfish Browser}
+
+\begin{columns}[T]
+\begin{column}[T]{1.1\textwidth}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{components}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item The Sailfish Browser isn't just gecko.
+\item {\tt sailfish-browser} provides the user interface (C++/Qt/QML).
+\item {\tt embedlite-components} provides JavaScript user interface functionality (JavaScript).
+\item {\tt qtmozembed} turns gecko into an embeddable Qt component (C++/Qt).
+\item {\tt gecko} is the EmbedLite embedded gecko renderer (JavaScript/C++/Rust).
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Sailfish Browser}
+
+\begin{columns}[T]
+\begin{column}[T]{1.1\textwidth}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{components-languages}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item The Sailfish Browser isn't just gecko.
+\item {\tt sailfish-browser} provides the user interface (C++/Qt/QML).
+\item {\tt embedlite-components} provides JavaScript user interface functionality (JavaScript).
+\item {\tt qtmozembed} turns gecko into an embeddable Qt component (C++/Qt).
+\item {\tt gecko} is the EmbedLite embedded gecko renderer (JavaScript/C++/Rust).
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Gecko Code Distribution}
+
+\begin{columns}[T]
+\begin{column}[T]{0.7\textwidth}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{totals}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Chromium Code Distribution}
+
+\begin{columns}[T]
+\begin{column}[T]{0.7\textwidth}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{totals-chromium}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Gecko Patches}
+
+\begin{columns}[T]
+\begin{column}[T]{0.7\textwidth}
+
+\vspace{0.5cm}
+\includegraphics[width=1.0\textwidth]{patches}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
 \frametitle{Basic Browser Structure}
 
 \begin{columns}[T]
@@ -335,11 +449,10 @@ www.flypig.co.uk \\
 \begin{column}[T]{1.0\textwidth}
 \setlength{\parskip}{0.5em}
 
-\vspace{1.5cm}
+\vspace{1.0cm}
 \begin{enumerate}
 \setlength{\parskip}{0.5em}
-\item Root and Settings controller objects/interfaces
-\item Multiple views/windows with basic controls
+\item Embedding API objects/interfaces
 \item Event loop and user input (APZ)
 \item Message sending/receiving
 \item JavaScript in-DOM execution
@@ -347,6 +460,36 @@ www.flypig.co.uk \\
 \item IDL - interface definition language
 \end{enumerate}
 
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Emedding APIs}
+
+\begin{columns}[T]
+\begin{column}[T]{1.0\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.0cm}
+Most browser embedding frameworks offer a similar API
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item Settings controller
+\item Javascript execution
+\item Web controls (load, forwards, back)
+\item Separate view widgets
+\item Message passing interface
+\end{enumerate}
+Brief look at Chromium Embedded Framework, Sailfish WebView, QtWebEngine
 \end{column}
 \end{columns}
 
@@ -444,6 +587,34 @@ www.flypig.co.uk \\
 
 \lstinputlisting[language=cpp,firstline=33,lastline=52]{code-examples/gecko-webview.cpp}
 
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item -
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Interface Definition Language}
+
+\begin{columns}[T]
+\begin{column}[T]{1.0\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.8cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item Interaction between native code and JavaScript
+\item Requires type conversion and memory management
+\item IDL - generate native/JS-compatible interfaces
+\item Make native calls from JavaScript
+\item Make JavaScript calls from native
+\end{enumerate}
 \end{column}
 \end{columns}
 
@@ -644,136 +815,6 @@ What is xulrunner?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Interface Definition Language}
-
-\begin{columns}[T]
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{1.5cm}
-\begin{enumerate}
-\setlength{\parskip}{0.5em}
-\item IDL
-\item XPCOM
-\item Introspection
-\end{enumerate}
-
-\end{column}
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{mozilla}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{IPC calls}
-
-\begin{columns}[T]
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{1.5cm}
-\begin{enumerate}
-\setlength{\parskip}{0.5em}
-\item -
-\end{enumerate}
-
-\end{column}
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{mozilla}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Rendering}
-
-\begin{columns}[T]
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{1.5cm}
-\begin{enumerate}
-\setlength{\parskip}{0.5em}
-\item -
-\end{enumerate}
-
-\end{column}
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{mozilla}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{User Interface triggers}
-
-\begin{columns}[T]
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{1.5cm}
-\begin{enumerate}
-\setlength{\parskip}{0.5em}
-\item -
-\end{enumerate}
-
-\end{column}
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{mozilla}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
 \frametitle{DocShell}
 
 \begin{columns}[T]
@@ -824,219 +865,6 @@ What is xulrunner?
 
 \vspace{0.5cm}
 \includegraphics[width=1.0\textwidth]{mozilla}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Widgets}
-
-\begin{columns}[T]
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{1.5cm}
-\begin{enumerate}
-\setlength{\parskip}{0.5em}
-\item -
-\end{enumerate}
-
-\end{column}
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{mozilla}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Parent-Child Pattern}
-
-\begin{columns}[T]
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{1.5cm}
-\begin{enumerate}
-\setlength{\parskip}{0.5em}
-\item -
-\end{enumerate}
-
-\end{column}
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{mozilla}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{omni.ja}
-
-\begin{columns}[T]
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{1.5cm}
-\begin{enumerate}
-\setlength{\parskip}{0.5em}
-\item -
-\end{enumerate}
-
-\end{column}
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{mozilla}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Sailfish Browser}
-
-\begin{columns}[T]
-\begin{column}[T]{1.1\textwidth}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{components}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item The Sailfish Browser isn't just gecko.
-\item {\tt sailfish-browser} provides the user interface (C++/Qt/QML).
-\item {\tt embedlite-components} provides JavaScript user interface functionality (JavaScript).
-\item {\tt qtmozembed} turns gecko into an embeddable Qt component (C++/Qt).
-\item {\tt gecko} is the EmbedLite embedded gecko renderer (JavaScript/C++/Rust).
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Sailfish Browser}
-
-\begin{columns}[T]
-\begin{column}[T]{1.1\textwidth}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{components-languages}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item The Sailfish Browser isn't just gecko.
-\item {\tt sailfish-browser} provides the user interface (C++/Qt/QML).
-\item {\tt embedlite-components} provides JavaScript user interface functionality (JavaScript).
-\item {\tt qtmozembed} turns gecko into an embeddable Qt component (C++/Qt).
-\item {\tt gecko} is the EmbedLite embedded gecko renderer (JavaScript/C++/Rust).
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Gecko Code Distribution}
-
-\begin{columns}[T]
-\begin{column}[T]{0.7\textwidth}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{totals}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Chromium Code Distribution}
-
-\begin{columns}[T]
-\begin{column}[T]{0.7\textwidth}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{totals-chromium}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Gecko Patches}
-
-\begin{columns}[T]
-\begin{column}[T]{0.7\textwidth}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{patches}
 
 \end{column}
 \end{columns}
