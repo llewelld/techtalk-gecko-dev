@@ -319,8 +319,10 @@ class Graph:
 			width = xend - xstart
 			height = yend - ystart
 			self.draw_group(xstart, ystart, width, height, group["name"])
-			if end < self.data["width"]:
-				lines[end] = True
+			if xstart < self.data["width"]:
+				lines[xstart] = True
+			if xend < self.data["width"]:
+				lines[xend] = True
 			count += items
 
 		gaps = [[False for _ in range(self.data["height"])] for _ in range(self.data["width"])]
