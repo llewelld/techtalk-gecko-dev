@@ -189,10 +189,10 @@ Gecko has limited embedding capability that is not well-documented, not well-mai
 \frametitle{Context}
 
 \begin{columns}[T]
-\begin{column}[T]{0.5\textwidth}
+\begin{column}[T]{0.7\textwidth}
 \setlength{\parskip}{0.5em}
 
-\vspace{1.5cm}
+\vspace{2.0cm}
 \begin{enumerate}
 \setlength{\parskip}{0.5em}
 \item Work upgrading the browser on Sailfish OS
@@ -201,11 +201,29 @@ Gecko has limited embedding capability that is not well-documented, not well-mai
 \end{enumerate}
 
 \end{column}
-\begin{column}[T]{0.5\textwidth}
+\begin{column}[T]{0.3\textwidth}
 \setlength{\parskip}{0.5em}
 
 \vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{mozilla}
+
+
+\vspace{0.5cm}
+{\centering
+
+\includegraphics[width=0.95\textwidth]{qrcode-gecko-dev}
+
+\vspace{-0.1cm}
+
+\noindent{\parbox{0.8\textwidth}{{\large
+\href{https://www.flypig.co.uk/gecko}{{\tt https:// \\
+www.flypig.co.uk \\
+/gecko\\
+}}
+}}
+}
+
+
+}
 
 \end{column}
 \end{columns}
@@ -388,34 +406,34 @@ Gecko has limited embedding capability that is not well-documented, not well-mai
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-\frametitle{Dev Diary}
+%\begin{frame}
+%\frametitle{Dev Diary}
 
-\begin{columns}[T]
-\begin{column}[T]{0.6\textwidth}
-\setlength{\parskip}{0.5em}
+%\begin{columns}[T]
+%\begin{column}[T]{0.6\textwidth}
+%\setlength{\parskip}{0.5em}
 
-\vspace{1.2cm}
-{\huge
-\href{https://www.flypig.co.uk/gecko}{{\tt https:// \\
-www.flypig.co.uk \\
-/gecko\\
-}
-}}
+%\vspace{1.2cm}
+%{\huge
+%\href{https://www.flypig.co.uk/gecko}{{\tt https:// \\
+%www.flypig.co.uk \\
+%/gecko\\
+%}
+%}}
 
-\end{column}
-\begin{column}[T]{0.3\textwidth}
-\setlength{\parskip}{0.5em}
+%\end{column}
+%\begin{column}[T]{0.3\textwidth}
+%\setlength{\parskip}{0.5em}
 
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{qrcode-gecko-dev}
+%\vspace{0.5cm}
+%\includegraphics[width=1.0\textwidth]{qrcode-gecko-dev}
 
-\end{column}
-\end{columns}
+%\end{column}
+%\end{columns}
 
-\end{frame}
-\note{
-}
+%\end{frame}
+%\note{
+%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -423,19 +441,26 @@ www.flypig.co.uk \\
 \frametitle{Basic Browser Structure}
 
 \begin{columns}[T]
-\begin{column}[T]{1.0\textwidth}
+\begin{column}[T]{0.66\textwidth}
 \setlength{\parskip}{0.5em}
 
 \vspace{1.5cm}
 \begin{enumerate}
 \setlength{\parskip}{0.5em}
 \item Protocol client (HTTP/S, file, FTP,...)
-\item DOM - Document Object Model
 \item JavaScript engine
 \item Media decoder (JPG, PNG, audio, video)
+\item DOM - Document Object Model
 \item Layout/rendering engine (HTML, CSS, SVG)
-\item User interface
+\item Chrome
 \end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.34\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{-0.2cm}
+\includegraphics[width=1.0\textwidth]{blocks}
 
 \end{column}
 \end{columns}
@@ -471,22 +496,29 @@ www.flypig.co.uk \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Embedded Browser Concepts}
+\frametitle{Embedded Browser Surface}
 
 \begin{columns}[T]
-\begin{column}[T]{1.0\textwidth}
+\begin{column}[T]{0.7\textwidth}
 \setlength{\parskip}{0.5em}
 
 \vspace{1.0cm}
 \begin{enumerate}
 \setlength{\parskip}{0.5em}
-\item Embedding API objects/interfaces
-\item Event loop and user input (APZ)
-\item Message sending/receiving
+\item Rendering canvas
+\item Event loop and user input (taps, keyboard, APZ)
+\item Browser actions
 \item JavaScript in-DOM execution
 \item JavaScript privileged execution
-\item IDL - interface definition language
+\item Message sending/receiving
 \end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.3\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\includegraphics[width=0.8\textwidth]{chinese-room}
 
 \end{column}
 \end{columns}
@@ -494,7 +526,8 @@ www.flypig.co.uk \\
 \end{frame}
 \note{
 \begin{enumerate}
-\item -
+\item Image "Modus scribendi," National Library of Medicine, Illustration from p. 310 of Kircher's La Chine.
+\item \url{http://resource.nlm.nih.gov/101595221}
 \end{enumerate}
 }
 
@@ -504,7 +537,7 @@ www.flypig.co.uk \\
 \frametitle{Emedding APIs}
 
 \begin{columns}[T]
-\begin{column}[T]{1.0\textwidth}
+\begin{column}[T]{0.73\textwidth}
 \setlength{\parskip}{0.5em}
 
 \vspace{1.0cm}
@@ -518,6 +551,14 @@ Most browser embedding frameworks offer a similar API
 \item Message passing interface
 \end{enumerate}
 Brief look at Chromium Embedded Framework, Sailfish WebView, QtWebEngine
+\end{column}
+\begin{column}[T]{0.2\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+\hspace{-1.0cm}
+\includegraphics[width=1.0\textwidth]{embedded-framework-logos}
+
 \end{column}
 \end{columns}
 

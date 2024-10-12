@@ -1,0 +1,22 @@
+{
+    "cellwidth": 256,
+    "cellheight": 256,
+    "gapwidth": 128,
+    "gapheight": -64,
+    "width": 2,
+    "height": 7,
+	"colour_cycle": "node",
+	"nodes": [
+	    {"name": "Protocol\nclient", "x": 0, "y": 0, "colour": "Media\nencoder/\ndecoder"},
+	    {"name": "JavaScript\nengine", "x": 1, "y": 1},
+	    {"name": "Media\nencoder/\ndecoder", "x": 0, "y": 2},
+	    {"name": "DOM\n+\nscene graph", "x": 1, "y": 3},
+	    {"name": "Chrome", "x": 1, "y": 5},
+	    {"name": "Layout\nengine", "x": 0, "y": 4, "colour": "DOM\n+\nscene graph"}
+	],
+	"connections": [
+	],
+	"groups": [
+	]
+}
+

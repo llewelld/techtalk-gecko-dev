@@ -4,11 +4,16 @@
 # SPDX-License-Identifier: MIT
 # Copyright © 2024 David Llewellyn-Jones
 
+import sys
 import drawsvg as draw
 import json
 from math import sin, pi
+from pathlib import Path
 
 class Graph:
+	input_file = None
+	output_prefix = None
+
 	data = None
 	cellwidth = 32
 	cellheight = 32
@@ -35,7 +40,10 @@ class Graph:
 	offset_y = 0
 
 	def __init__(self, data_file):
-		with open(data_file) as fh:
+		self.input_file = data_file
+		self.output_prefix = Path(data_file).stem
+		print("Reading: {}".format(self.input_file))
+		with open(self.input_file) as fh:
 			self.data = json.load(fh)
 		
 		self.cellwidth = self.data["cellwidth"]
@@ -297,6 +305,7 @@ class Graph:
 		self.canvas.append(item)
 
 	def draw_groups(self):
+		lines = [False for _ in range(self.data["width"])]
 		count = 0
 		for group in self.data["groups"]:
 			items = group["items"]
@@ -310,6 +319,8 @@ class Graph:
 			width = xend - xstart
 			height = yend - ystart
 			self.draw_group(xstart, ystart, width, height, group["name"])
+			if end < self.data["width"]:
+				lines[end] = True
 			count += items
 
 		gaps = [[False for _ in range(self.data["height"])] for _ in range(self.data["width"])]
@@ -324,12 +335,13 @@ class Graph:
 					gaps[x + 1][y] = True
 
 		for x in range(1, self.data["width"]):
-			ystart = 0
-			for y in range(self.data["height"] - 1):
-				if gaps[x][y + 1]:
-					self.draw_group_line(x, ystart, y + 1)
-					ystart = y + 1
-			self.draw_group_line(x, ystart, self.data["height"])
+			if lines[x]:
+				ystart = 0
+				for y in range(self.data["height"] - 1):
+					if gaps[x][y + 1]:
+						self.draw_group_line(x, ystart, y + 1)
+						ystart = y + 1
+				self.draw_group_line(x, ystart, self.data["height"])
 
 	def draw(self):
 		self.canvas = draw.Drawing(self.width + 4, self.height + 4, origin=(0, 0))
@@ -375,9 +387,14 @@ class Graph:
 		for node in self.data["nodes"]:
 			colour = node.get("colour", None)
 			if colour:
-				node["colour"] = self.get_node_by_name(colour)["colour"]
+				node["colour"] = self.get_node_by_name(colour)["count"]
 			else:
-				node["colour"] = self.get_colour(colours[count])
+				node["colour"] = count
+			count += 1
+
+		for node in self.data["nodes"]:
+			colour = node.get("colour", None)
+			node["colour"] = self.get_colour(colours[node["colour"]])
 			count += 1
 
 		count = 0
@@ -403,9 +420,19 @@ class Graph:
 
 		self.draw_groups()
 
-		self.canvas.save_svg("internals.svg")
-		self.canvas.save_png("internals.png")
+		print("Exporting: {}.svg".format(self.output_prefix))
+		self.canvas.save_svg("{}.svg".format(self.output_prefix))
+		print("Exporting: {}.png".format(self.output_prefix))
+		self.canvas.save_png("{}.png".format(self.output_prefix))
 
-graph = Graph("internals.json")
-graph.draw()
+def syntax():
+	print("Syntax: make-blocks.py <input-file.json>")
+
+if __name__ == "__main__":
+	if len(sys.argv) == 2:
+		graph = Graph(sys.argv[1])
+		graph.draw()
+	else:
+		syntax()
+
 

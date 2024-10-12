@@ -4,6 +4,7 @@ resources/devices/
 slides.pdf
 graphics/gantt.pdf
 graphics/internals.pdf
+graphics/blocks.pdf
 techtalk-gecko-dev.pdf
 
 ## Core latex/pdflatex auxiliary files:
