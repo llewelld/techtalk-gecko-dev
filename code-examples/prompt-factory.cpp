@@ -136,13 +136,13 @@ NS_IMETHODIMP
 nsPromptFactory::GetPrompt(mozIDOMWindowProxy *aParent,
                         const nsIID & iid, void * * result) {
   nsCOMPtr<nsISupports> login = new LoginManagerPrompter();
-  nsCOMPtr<nsILoginManagerPrompter> prompt = login
-                                .QueryInterface(iid, prompt);
+  nsCOMPtr<nsILoginManagerPrompter> prompt =
+           login.QueryInterface(iid, getter_AddRefs(prompt));
   if (prompt) {
     prompt.Init(aParent, this);
   }
 
-  *aResult = prompt.forget().take();
+  *result = prompt.forget().take();
   return NS_OK;
 }
 
