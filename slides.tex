@@ -778,28 +778,83 @@ Brief look at Chromium Embedded Framework, Sailfish WebView, QtWebEngine
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{XULRunner}
+\frametitle{Inter-Thread/Process Messages}
+
+\begin{columns}[T]
+\begin{column}[T]{1.0\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.0cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item Inter-Thread and Inter-Process Message Passing
+\item IPDL - Inter-[thread|process] Protocol Definition Language
+\item Inspired by {\it actor model\/} - Parent-Child pairs
+\item Actors bound to an endpoint, bound to a thread
+\item Actor framework schedules tasks to run on event traget
+\end{enumerate}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item IPDL quick reference: \url{https://firefox-source-docs.mozilla.org/ipc/ipdl.html#ipdl-syntax-quick-reference}
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Inter-Thread/Process Messages}
+
+\begin{columns}[T]
+\begin{column}[T]{1.0\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{1.0cm}
+\begin{enumerate}
+\setlength{\parskip}{0.5em}
+\item Message ordering is presevered
+\item Only child actors can send sync messages or break the connection
+\item Look like asynchronous message calls
+\item IPDL files generate parent and child C++ code
+\item Clients subclass the generated interfaces
+\end{enumerate}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+\begin{enumerate}
+\item IPDL quick reference: \url{https://firefox-source-docs.mozilla.org/ipc/ipdl.html#ipdl-syntax-quick-reference}
+\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{}
 
 \begin{columns}[T]
 \begin{column}[T]{0.5\textwidth}
 \setlength{\parskip}{0.5em}
 
-\vspace{1.5cm}
-What is xulrunner?
-\begin{enumerate}
-\setlength{\parskip}{0.5em}
-\item XUL: XML User interface Language
-\item xulrunner: build process to generate a library
-\item Officially deprecated in 2016
-\item Outputs libxul.so and related artefacts
-\end{enumerate}
+\vspace{0.5cm}
+
+\lstinputlisting[language=ipdl,firstline=5,lastline=13]{code-examples/ipdl.cpp}
 
 \end{column}
 \begin{column}[T]{0.5\textwidth}
 \setlength{\parskip}{0.5em}
 
 \vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{mozilla}
+
+\lstinputlisting[language=cpp,firstline=33,lastline=43]{code-examples/ipdl.cpp}
+
+\lstinputlisting[language=cpp,firstline=19,lastline=27]{code-examples/ipdl.cpp}
 
 \end{column}
 \end{columns}
@@ -814,26 +869,25 @@ What is xulrunner?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{EmbedLite}
+\frametitle{}
 
 \begin{columns}[T]
 \begin{column}[T]{0.5\textwidth}
 \setlength{\parskip}{0.5em}
 
-\vspace{1.5cm}
-What is xulrunner?
-\begin{enumerate}
-\setlength{\parskip}{0.5em}
-\item XULRunner with hooks for Qt event loop support
-\item Run as a thread or a process
-\end{enumerate}
+\vspace{0.5cm}
+
+\lstinputlisting[language=cpp,firstline=65,lastline=74]{code-examples/ipdl.cpp}
+
+\lstinputlisting[language=cpp,firstline=49,lastline=59]{code-examples/ipdl.cpp}
 
 \end{column}
 \begin{column}[T]{0.5\textwidth}
 \setlength{\parskip}{0.5em}
 
 \vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{mozilla}
+
+\lstinputlisting[language=cpp,firstline=80,lastline=108]{code-examples/ipdl.cpp}
 
 \end{column}
 \end{columns}
@@ -848,7 +902,7 @@ What is xulrunner?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{libxul.so}
+\frametitle{Working with Gecko}
 
 \begin{columns}[T]
 \begin{column}[T]{0.5\textwidth}
@@ -857,75 +911,9 @@ What is xulrunner?
 \vspace{1.5cm}
 \begin{enumerate}
 \setlength{\parskip}{0.5em}
-\item Provides HTTP client, renderer, JavaScript interpretter
-\item Everything except the front-end
-\item Methods for sending and receiving IPC calls
-\item Exposes the full Gecko interface
-\item Including calls to register privileged JavaScript
-\end{enumerate}
-
-\end{column}
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{mozilla}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{DocShell}
-
-\begin{columns}[T]
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{1.5cm}
-\begin{enumerate}
-\setlength{\parskip}{0.5em}
-\item -
-\end{enumerate}
-
-\end{column}
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{0.5cm}
-\includegraphics[width=1.0\textwidth]{mozilla}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{DOMWindow}
-
-\begin{columns}[T]
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{1.5cm}
-\begin{enumerate}
-\setlength{\parskip}{0.5em}
-\item -
+\item Very mature codebase
+\item An entire ecosystem of software techniques
+\item A critical operating system component
 \end{enumerate}
 
 \end{column}

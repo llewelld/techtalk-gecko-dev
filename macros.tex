@@ -97,9 +97,9 @@
 }
 
 \lstdefinelanguage{cpp}{
-	keywords={class, public, private, try, throw, catch, this, return, null, switch, if, while, do, else, case, break, for, bool, void, const, static, volatile, int, using},
+	keywords={class, public, private, protected, try, throw, catch, this, return, null, switch, if, while, do, else, case, break, for, bool, void, const, static, volatile, int, using, virtual},
 	keywordstyle=\color{blue}\bfseries,
-	ndkeywords={Q_OBJECT, Q_CLASSINFO, Q_PROPERTY, Q_SLOTS, Q_SIGNALS, signals, slots, READ, WRITE, NOTIFY, QString, QUrl, CefString, CefRefPtr, qreal, nsresult, NS_IMETHODIMP, NS_ENSURE_SUCCESS, nsCOMPtr},
+	ndkeywords={Q_OBJECT, Q_CLASSINFO, Q_PROPERTY, Q_SLOTS, Q_SIGNALS, signals, slots, READ, WRITE, NOTIFY, QString, QUrl, CefString, CefRefPtr, qreal, nsresult, NS_IMETHODIMP, NS_ENSURE_SUCCESS, nsCOMPtr, nsString, nsCString},
 	ndkeywordstyle=\color{violet}\bfseries,
 	identifierstyle=\color{black},
 	sensitive=false,
@@ -115,6 +115,21 @@
 	keywords={interface, public, private, void, scriptable},
 	keywordstyle=\color{blue}\bfseries,
 	ndkeywords={in, out, uuid},
+	ndkeywordstyle=\color{violet}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{teal}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]"
+}
+
+\lstdefinelanguage{ipdl}{
+	keywords={nested, sync, async, protocol, child, parent},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={nsString, nsCString},
 	ndkeywordstyle=\color{violet}\bfseries,
 	identifierstyle=\color{black},
 	sensitive=false,
