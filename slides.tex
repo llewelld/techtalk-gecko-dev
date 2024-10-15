@@ -691,7 +691,6 @@ Brief look at Chromium Embedded Framework, Sailfish WebView, QtWebEngine
 \setlength{\parskip}{0.5em}
 
 \vspace{1.0cm}
-%\hspace{-1.0cm}
 \includegraphics[width=1.0\textwidth]{xpcom-types}
 
 \end{column}
@@ -791,18 +790,25 @@ Brief look at Chromium Embedded Framework, Sailfish WebView, QtWebEngine
 \frametitle{Inter-Thread/Process Messages}
 
 \begin{columns}[T]
-\begin{column}[T]{1.0\textwidth}
+\begin{column}[T]{0.7\textwidth}
 \setlength{\parskip}{0.5em}
 
 \vspace{1.0cm}
 \begin{enumerate}
 \setlength{\parskip}{0.5em}
 \item Inter-Thread and Inter-Process Message Passing
-\item IPDL - Inter-[thread|process] Protocol Definition Language
-\item Inspired by {\it actor model\/} - Parent-Child pairs
+\item Inter-[thread|process] Protocol Definition Language
+\item Inspired by the {\it actor model\/} - Parent-Child pairs
 \item Actors bound to an endpoint, bound to a thread
-\item Actor framework schedules tasks to run on event traget
+\item Actor framework schedules tasks to run on event target
 \end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.3\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.7cm}
+\includegraphics[width=1.0\textwidth]{fog-cutter-actor}
 
 \end{column}
 \end{columns}
@@ -811,6 +817,7 @@ Brief look at Chromium Embedded Framework, Sailfish WebView, QtWebEngine
 \note{
 \begin{enumerate}
 \item IPDL quick reference: \url{https://firefox-source-docs.mozilla.org/ipc/ipdl.html#ipdl-syntax-quick-reference}
+\item Similar to a ``Fog Cutter'' actor, see Carl Hewitt, ``Actor Model of Computation: Scalable Robust Information Systems,'' 2015, \url{https://arxiv.org/abs/1008.1459}.
 \end{enumerate}
 }
 
@@ -820,10 +827,10 @@ Brief look at Chromium Embedded Framework, Sailfish WebView, QtWebEngine
 \frametitle{Inter-Thread/Process Messages}
 
 \begin{columns}[T]
-\begin{column}[T]{1.0\textwidth}
+\begin{column}[T]{0.83\textwidth}
 \setlength{\parskip}{0.5em}
 
-\vspace{1.0cm}
+\vspace{1.5cm}
 \begin{enumerate}
 \setlength{\parskip}{0.5em}
 \item Message ordering is presevered
@@ -832,6 +839,14 @@ Brief look at Chromium Embedded Framework, Sailfish WebView, QtWebEngine
 \item IPDL files generate parent and child C++ code
 \item Clients subclass the generated interfaces
 \end{enumerate}
+
+\end{column}
+\begin{column}[T]{0.17\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.7cm}
+\hspace{-0.5cm}
+\includegraphics[width=1.0\textwidth]{ipdl}
 
 \end{column}
 \end{columns}
