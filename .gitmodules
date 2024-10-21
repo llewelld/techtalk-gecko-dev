@@ -1,0 +1,3 @@
+[submodule "examples/harbour-webviewtest"]
+	path = examples/harbour-webviewtest
+	url = https://github.com/llewelld/harbour-webviewtest.git
