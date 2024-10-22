@@ -36,6 +36,54 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{The Truth}
+
+\begin{columns}[T]
+\begin{column}[T]{0.7\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+
+\begin{shadequote}[r]{King's Bench Division, 1927}
+\vspace{-0.3cm} \raggedright \\
+{\huge \vphantom{Og}The truth, the whole truth, \\and nothing but the truth.} \\
+\vspace{0.3cm}
+\end{shadequote}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{The Truth About Browsers}
+
+\begin{columns}[T]
+\begin{column}[T]{0.7\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+
+\begin{shadequote}[r]{David, just now}
+\vspace{-0.3cm} \raggedright \\
+{\huge Subjective, incomplete, \\and easily overgeneralised.} \\
+\vspace{0.3cm}
+\end{shadequote}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
 \frametitle{Gecko}
 
 \begin{columns}[T]
@@ -534,7 +582,7 @@ www.flypig.co.uk \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Emedding APIs}
+\frametitle{Embedding APIs}
 
 \begin{columns}[T]
 \begin{column}[T]{0.73\textwidth}
@@ -545,12 +593,12 @@ Most browser embedding frameworks offer a similar API
 \begin{enumerate}
 \setlength{\parskip}{0.5em}
 \item Settings controller
-\item Javascript execution
-\item Web controls (load, forwards, back)
 \item Separate view widgets
+\item Web controls (load, forwards, back)
+\item Javascript execution
 \item Message passing interface
 \end{enumerate}
-Brief look at Chromium Embedded Framework, Sailfish WebView, QtWebEngine
+Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 
 \end{column}
 \begin{column}[T]{0.2\textwidth}
@@ -581,7 +629,9 @@ Brief look at Chromium Embedded Framework, Sailfish WebView, QtWebEngine
 
 \vspace{0.7cm}
 
-\lstinputlisting[language=cpp,firstline=1,lastline=24]{code-examples/blink-browser.cpp}
+\lstinputlisting[language=cpp,firstline=1,lastline=14]{code-examples/blink-cef.cpp}
+
+\lstinputlisting[language=cpp,firstline=47,lastline=62]{code-examples/blink-cef.cpp}
 
 \end{column}
 \begin{column}[T]{0.5\textwidth}
@@ -589,9 +639,9 @@ Brief look at Chromium Embedded Framework, Sailfish WebView, QtWebEngine
 
 \vspace{0.7cm}
 
-\lstinputlisting[language=cpp,firstline=26,lastline=41]{code-examples/blink-browser.cpp}
+\lstinputlisting[language=cpp,firstline=33,lastline=45]{code-examples/blink-cef.cpp}
 
-\lstinputlisting[language=cpp,firstline=43,lastline=54]{code-examples/blink-browser.cpp}
+\lstinputlisting[language=cpp,firstline=16,lastline=31]{code-examples/blink-cef.cpp}
 
 \end{column}
 \end{columns}
