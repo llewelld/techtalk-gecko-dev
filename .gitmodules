@@ -4,3 +4,6 @@
 [submodule "examples/WebEngineTest"]
 	path = examples/WebEngineTest
 	url = https://github.com/llewelld/WebEngineTest.git
+[submodule "examples/ceftest"]
+	path = examples/ceftest
+	url = https://github.com/llewelld/ceftest.git
