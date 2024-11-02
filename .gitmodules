@@ -7,3 +7,6 @@
 [submodule "examples/ceftest"]
 	path = examples/ceftest
 	url = https://github.com/llewelld/ceftest.git
+[submodule "utilities/harbour-present"]
+	path = utilities/harbour-present
+	url = https://github.com/llewelld/harbour-present.git
