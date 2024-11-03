@@ -1,4 +1,4 @@
-all: techtalk-gecko-dev.pdf
+all: techtalk-gecko-dev.pdf notes.pdf
 
 slides.aux: slides.tex slides.bib
 	xelatex slides.tex
@@ -30,6 +30,13 @@ resources/blocks.svg: resources/make-blocks.py resources/blocks.json
 
 techtalk-gecko-dev.pdf: slides.pdf
 	cp slides.pdf techtalk-gecko-dev.pdf
+
+notes.aux: notes.tex slides.bib
+	xelatex notes.tex
+
+notes.pdf: notes.tex macros.tex
+	xelatex notes.tex
+	xelatex notes.tex
 
 clean:
 	rm -f *.blg *.log *.pdf *.bbl *.aux *.out *.nav *.snm *.toc *.vrb && \

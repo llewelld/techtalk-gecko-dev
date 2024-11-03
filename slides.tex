@@ -11,6 +11,11 @@
 
 \input{macros}
 
+\mode<handout>{%
+	\pgfpagesuselayout{8 on 1}[a4paper,border shrink=5mm]
+	\setbeameroption{show notes}
+}
+
 \usefolder{theme}
 \usetheme{sailfish}
 
@@ -175,9 +180,6 @@ What does ``embedded'' mean?
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -233,7 +235,7 @@ Gecko has limited embedding capability that is not well-documented, not well-mai
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
+\begin{frame}<presentation:0>
 \frametitle{Context}
 
 \begin{columns}[T]
@@ -263,14 +265,12 @@ Gecko has limited embedding capability that is not well-documented, not well-mai
 \vspace{-0.1cm}
 
 \noindent{\parbox{0.8\textwidth}{{\large
-\href{https://www.flypig.co.uk/gecko}{{\tt https:// \\
+\href{https://www.flypig.co.uk/gecko}{{\code https:// \\
 www.flypig.co.uk \\
 /gecko\\
 }}
 }}
 }
-
-
 }
 
 \end{column}
@@ -278,30 +278,6 @@ www.flypig.co.uk \\
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{}
-
-\begin{columns}[T]
-\begin{column}[T]{1.13\textwidth}
-
-\vspace{0.0cm}
-\includegraphics[width=1.0\textwidth]{timeline-dev}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item The timeline of work up until now.
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -334,14 +310,29 @@ www.flypig.co.uk \\
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item Some of the challenges when working with the browser
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{}
+
+\begin{columns}[T]
+\begin{column}[T]{1.13\textwidth}
+
+\vspace{0.0cm}
+\includegraphics[width=1.0\textwidth]{timeline-dev}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}<presentation:0>
 \frametitle{Sailfish Browser}
 
 \begin{columns}[T]
@@ -357,16 +348,16 @@ www.flypig.co.uk \\
 \note{
 \begin{enumerate}
 \item The Sailfish Browser isn't just gecko.
-\item {\tt sailfish-browser} provides the user interface (C++/Qt/QML).
-\item {\tt embedlite-components} provides JavaScript user interface functionality (JavaScript).
-\item {\tt qtmozembed} turns gecko into an embeddable Qt component (C++/Qt).
-\item {\tt gecko} is the EmbedLite embedded gecko renderer (JavaScript/C++/Rust).
+\item {\code sailfish-browser} provides the user interface (C++/Qt/QML).
+\item {\code embedlite-components} provides JavaScript user interface functionality (JavaScript).
+\item {\code qtmozembed} turns gecko into an embeddable Qt component (C++/Qt).
+\item {\code gecko} is the EmbedLite embedded gecko renderer (JavaScript/C++/Rust).
 \end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
+\begin{frame}<presentation:0>
 \frametitle{Sailfish Browser}
 
 \begin{columns}[T]
@@ -382,10 +373,10 @@ www.flypig.co.uk \\
 \note{
 \begin{enumerate}
 \item The Sailfish Browser isn't just gecko.
-\item {\tt sailfish-browser} provides the user interface (C++/Qt/QML).
-\item {\tt embedlite-components} provides JavaScript user interface functionality (JavaScript).
-\item {\tt qtmozembed} turns gecko into an embeddable Qt component (C++/Qt).
-\item {\tt gecko} is the EmbedLite embedded gecko renderer (JavaScript/C++/Rust).
+\item {\code sailfish-browser} provides the user interface (C++/Qt/QML).
+\item {\code embedlite-components} provides JavaScript user interface functionality (JavaScript).
+\item {\code qtmozembed} turns gecko into an embeddable Qt component (C++/Qt).
+\item {\code gecko} is the EmbedLite embedded gecko renderer (JavaScript/C++/Rust).
 \end{enumerate}
 }
 
@@ -405,9 +396,6 @@ www.flypig.co.uk \\
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -426,9 +414,6 @@ www.flypig.co.uk \\
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -447,41 +432,7 @@ www.flypig.co.uk \\
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\begin{frame}
-%\frametitle{Dev Diary}
-
-%\begin{columns}[T]
-%\begin{column}[T]{0.6\textwidth}
-%\setlength{\parskip}{0.5em}
-
-%\vspace{1.2cm}
-%{\huge
-%\href{https://www.flypig.co.uk/gecko}{{\tt https:// \\
-%www.flypig.co.uk \\
-%/gecko\\
-%}
-%}}
-
-%\end{column}
-%\begin{column}[T]{0.3\textwidth}
-%\setlength{\parskip}{0.5em}
-
-%\vspace{0.5cm}
-%\includegraphics[width=1.0\textwidth]{qrcode-gecko-dev}
-
-%\end{column}
-%\end{columns}
-
-%\end{frame}
-%\note{
-%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -515,9 +466,6 @@ www.flypig.co.uk \\
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -536,9 +484,6 @@ www.flypig.co.uk \\
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item The internal building blocks of a browser and how they relate to one another.
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -556,8 +501,8 @@ www.flypig.co.uk \\
 \item Rendering canvas
 \item Event loop and user input (taps, keyboard, APZ)
 \item Browser actions
-\item JavaScript in-DOM execution
 \item JavaScript privileged execution
+\item JavaScript in-DOM execution
 \item Message sending/receiving
 \end{enumerate}
 
@@ -573,10 +518,6 @@ www.flypig.co.uk \\
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item Image "Modus scribendi," National Library of Medicine, Illustration from p. 310 of Kircher's La Chine.
-\item \url{http://resource.nlm.nih.gov/101595221}
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -613,9 +554,6 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -649,7 +587,10 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 \end{frame}
 \note{
 \begin{enumerate}
-\item -
+\item {\code CefBrowserHost}: The core browser class that offers non-page specific functionality and the creation of {\code CefBrowser} objects.
+\item {\code CefBrowser}: A wrapper class used to control a particular view.
+\item {\code CefFrame}: Allows deeper interaction with a Web page. You'll notice this is the interface used for executing |JavaScript and sending messages to the browser window. 
+\item {\ CefV8Value}: An interface for accessing JavaScript objects from C++. This can hold many different data types, including Ints, Floats and Strings. And also functions.
 \end{enumerate}
 }
 
@@ -680,7 +621,8 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 \end{frame}
 \note{
 \begin{enumerate}
-\item -
+\item {\code QWebEnginePage}: Provides access to core functionalities including execution of JavaScript. You can send JavaScript to be executed which can interact witht the DOM and return a result.
+\item {\code QWebEngineView}: Provides the view onto a Web page, including setting the URL, navigating, etc. As you can see, the {\code QWebEnginePage} is accessed via the {\code QWebEngineView}.
 \end{enumerate}
 }
 
@@ -713,7 +655,9 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 \end{frame}
 \note{
 \begin{enumerate}
-\item -
+\item {\code WebEngine}: Provides access to the core functionality of the renderer, including sending and receiving notifcations from the privileged code and injecting privileged code into the system.
+\item {\code WebEngineSettings}: Allows global renderer settings to be controlled.
+\item {\code QuickMozView} which is subclassed to a class called {\code WebView}: represents a single widget in an application for a page. You can see it's also possible to execute non-privileged JavaScript in the DOM context and to navigate and so on.
 \end{enumerate}
 }
 
@@ -734,9 +678,6 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -765,9 +706,6 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -801,40 +739,6 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item Table from: \url{https://firefox-source-docs.mozilla.org/xpcom/xpidl.html}
-\end{enumerate}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{}
-
-\begin{columns}[T]
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{0.5cm}
-
-\lstinputlisting[language=cpp,firstline=11,lastline=45]{code-examples/jsvalue.cpp}
-
-\end{column}
-\begin{column}[T]{0.5\textwidth}
-\setlength{\parskip}{0.5em}
-
-\vspace{0.5cm}
-
-\lstinputlisting[language=cpp,firstline=47,lastline=81,firstnumber=36]{code-examples/jsvalue.cpp}
-
-\end{column}
-\end{columns}
-
-\end{frame}
-\note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -857,9 +761,6 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -888,9 +789,6 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -913,9 +811,34 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{}
+
+\begin{columns}[T]
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+
+\lstinputlisting[language=cpp,firstline=11,lastline=45]{code-examples/jsvalue.cpp}
+
+\end{column}
+\begin{column}[T]{0.5\textwidth}
+\setlength{\parskip}{0.5em}
+
+\vspace{0.5cm}
+
+\lstinputlisting[language=cpp,firstline=47,lastline=81,firstnumber=36]{code-examples/jsvalue.cpp}
+
+\end{column}
+\end{columns}
+
+\end{frame}
+\note{
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -931,10 +854,10 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 \begin{enumerate}
 \setlength{\parskip}{0.5em}
 \item Inter-Thread and Inter-Process Message Passing
-\item Inter-[thread|process] Protocol Definition Language
 \item Inspired by the {\it actor model\/} - Parent-Child pairs
 \item Actors bound to an endpoint, bound to a thread
 \item Actor framework schedules tasks to run on event target
+\item Inter-[thread|process] Protocol Definition Language
 \end{enumerate}
 
 \end{column}
@@ -950,7 +873,7 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 \end{frame}
 \note{
 \begin{enumerate}
-\item IPDL quick reference: \url{https://firefox-source-docs.mozilla.org/ipc/ipdl.html#ipdl-syntax-quick-reference}
+\item IPDL quick reference: \url{https://firefox-source-docs.mozilla.org/ipc/ipdl.html\#ipdl-syntax-quick-reference}
 \item Similar to a ``Fog Cutter'' actor, see Carl Hewitt, ``Actor Model of Computation: Scalable Robust Information Systems,'' 2015, \url{https://arxiv.org/abs/1008.1459}.
 \end{enumerate}
 }
@@ -969,7 +892,7 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 \setlength{\parskip}{0.5em}
 \item Message ordering is presevered
 \item Only child actors can send sync messages or break the connection
-\item Look like asynchronous message calls
+\item Look like asynchronous method calls
 \item IPDL files generate parent and child C++ code
 \item Clients subclass the generated interfaces
 \end{enumerate}
@@ -988,7 +911,7 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 \end{frame}
 \note{
 \begin{enumerate}
-\item IPDL quick reference: \url{https://firefox-source-docs.mozilla.org/ipc/ipdl.html#ipdl-syntax-quick-reference}
+\item IPDL quick reference: \url{https://firefox-source-docs.mozilla.org/ipc/ipdl.html\#ipdl-syntax-quick-reference}
 \end{enumerate}
 }
 
@@ -1020,9 +943,6 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1053,9 +973,6 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 
 \end{frame}
 \note{
-\begin{enumerate}
-\item -
-\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1098,7 +1015,7 @@ Brief look at Chromium Embedded Framework, Qt WebEngine, Sailfish WebView
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
+\begin{frame}<presentation:0>
 %\frametitle{Thigg's Images}
 
 \begin{columns}[T]
