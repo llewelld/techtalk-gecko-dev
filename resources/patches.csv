@@ -1,0 +1,14 @@
+"Version","Name","Added","Removed"
+"ESR 78","C++",22726,606
+"ESR 78","Rust",544,175
+"ESR 78","JavaScript",158,6
+"ESR 78","IDL",29,3
+"ESR 78","Build",28558,20350
+"ESR 78","Docs",510,2
+"ESR 91","C++",22476,631
+"ESR 91","Rust",498,180
+"ESR 91","JavaScript",170,43
+"ESR 91","IDL",39,6
+"ESR 91","Build",19320,11090
+"ESR 91","Docs",508,12
+
