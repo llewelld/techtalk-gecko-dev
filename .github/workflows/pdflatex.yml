@@ -36,6 +36,7 @@ jobs:
           git checkout --orphan gh-action-result/pdf-output
           git rm -rf .
           git add techtalk-gecko-dev.pdf
+          git add notes.pdf
           git -c user.name='GitHub Action' -c user.email='action@github.com' commit -m "Built PDF documents"
       - name: Push changes
         uses: ad-m/github-push-action@master

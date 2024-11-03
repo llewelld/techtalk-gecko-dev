@@ -2,6 +2,7 @@
 
 [![LaTeX build](../../actions/workflows/pdflatex.yml/badge.svg)](../../actions/workflows/pdflatex.yml)
 [![Slides](https://img.shields.io/badge/PDF-Slides-orange.svg?style=flat)](../gh-action-result/pdf-output/techtalk-gecko-dev.pdf)
+[![Notes](https://img.shields.io/badge/PDF-Notes-orange.svg?style=flat)](../gh-action-result/pdf-output/notes.pdf)
 
 The Alan Turing Institute Tech Talk series
 
