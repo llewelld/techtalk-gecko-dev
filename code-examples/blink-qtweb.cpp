@@ -12,7 +12,7 @@ public:
 
     virtual void triggerAction(WebAction action,             bool checked);
 
-    void findText(const QString &subString,                  FindFlags options, const std::function<void(const QWebEngineFindTextResult &)> &resultCallback));
+    void findText(const QString &subString,                  FindFlags options, const std::function<void(const QWebEngineFindTextResult &)> &resultCallback);
     void load(const QUrl &url);
     void download(const QUrl &url, const QString &filename);
     void runJavaScript(const QString &scriptSource,          const std::function<void(const QVariant &)> &resultCallback);
