@@ -6,7 +6,7 @@
 
 The Alan Turing Institute Tech Talk series
 
-19/11/2024
+03/12/2024
 
 ## Details
 
@@ -16,7 +16,7 @@ Provides example embedded browser code using CEF, a Qt WebEngine and a Sailfish 
 
 ## Schedule
 
-Tuesday 5th November 2024, 12:30 -- 13:30 GMT
+Tuesday 3rd December 2024, 12:30 -- 13:30 GMT
 
 50 minutes talk, 5 minutes question
 
