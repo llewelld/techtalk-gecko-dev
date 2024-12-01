@@ -572,7 +572,7 @@ But doubles are 64-bit. Pointers are 64-bit. How does it store all of these diff
 
 The answer is that 64-bit floating values, as defined in the IEEE 754 specification, support massive redundancy in the NaN value. That's the number used to represent things like zero divided by zero.
 
-There are in fact $2^52 - 2$ different floating point values, all of which constitute a NaN. There are reasons for this, not least as a means of simplifying implementations in hardware.
+There are in fact $2^{52} - 2$ different floating point values, all of which constitute a NaN. There are reasons for this, not least as a means of simplifying implementations in hardware.
 
 But it means that Gecko has space to store a bunch of flags for different data types inside that redundant space. Alongside these flags there's then space for all of the 32-bit integers and also 47-bit pointers. The browser then uses mmap to ensure that pointers never needed to be larger than 47 bits.
 
